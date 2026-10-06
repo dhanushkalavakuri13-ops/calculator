@@ -1,0 +1,140 @@
+<!doctype html>
+<html lang="en">
+  <head>
+    <meta charset="UTF-8" />
+    <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+    <meta name="theme-color" content="#0b1020" />
+    <meta
+      name="description"
+      content="A modern scientific calculator with keyboard support and calculation history."
+    />
+    <title>Orbit — Scientific Calculator</title>
+    <link rel="preconnect" href="https://fonts.googleapis.com" />
+    <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin />
+    <link
+      href="https://fonts.googleapis.com/css2?family=DM+Mono:wght@400;500&family=Manrope:wght@400;500;600;700;800&display=swap"
+      rel="stylesheet"
+    />
+    <link rel="stylesheet" href="styles.css" />
+    <script src="script.js" defer></script>
+  </head>
+  <body>
+    <main class="app-shell">
+      <header class="topbar">
+        <a class="brand" href="#" aria-label="Orbit calculator home">
+          <span class="brand-mark" aria-hidden="true"><span></span></span>
+          <span>orbit<span class="brand-period">.</span></span>
+        </a>
+        <div class="topbar-note"><span class="status-dot"></span> READY TO CALCULATE</div>
+      </header>
+
+      <section class="workspace" aria-label="Scientific calculator">
+        <div class="calculator-card">
+          <div class="card-heading">
+            <div>
+              <p class="eyebrow">YOUR EVERYDAY, ELEVATED</p>
+              <h1>Calculator</h1>
+            </div>
+            <button class="angle-toggle" id="angle-toggle" type="button" aria-label="Angle mode: degrees">
+              <span class="angle-indicator"></span>
+              <span id="angle-label">DEG</span>
+              <span class="toggle-hint">ANGLE</span>
+            </button>
+          </div>
+
+          <section class="display" aria-label="Calculator display" aria-live="polite">
+            <div class="expression" id="expression">Ready when you are</div>
+            <div class="result-row">
+              <div class="result" id="result">0</div>
+              <button class="copy-button" id="copy-button" type="button" aria-label="Copy result" title="Copy result">
+                <svg viewBox="0 0 20 20" aria-hidden="true">
+                  <rect x="7" y="7" width="9" height="10" rx="2"></rect>
+                  <path d="M12.5 7V5a2 2 0 0 0-2-2H5a2 2 0 0 0-2 2v6a2 2 0 0 0 2 2h2"></path>
+                </svg>
+              </button>
+            </div>
+          </section>
+
+          <div class="keypad" id="keypad" aria-label="Calculator keys">
+            <button class="key key-function" data-value="sin(" aria-label="Sine">sin</button>
+            <button class="key key-function" data-value="cos(" aria-label="Cosine">cos</button>
+            <button class="key key-function" data-value="tan(" aria-label="Tangent">tan</button>
+            <button class="key key-function" data-value="(" aria-label="Open parenthesis">(</button>
+            <button class="key key-function" data-value=")" aria-label="Close parenthesis">)</button>
+
+            <button class="key key-function" data-value="asin(" aria-label="Inverse sine">sin⁻¹</button>
+            <button class="key key-function" data-value="acos(" aria-label="Inverse cosine">cos⁻¹</button>
+            <button class="key key-function" data-value="atan(" aria-label="Inverse tangent">tan⁻¹</button>
+            <button class="key key-function" data-value="sqrt(" aria-label="Square root">√</button>
+            <button class="key key-function" data-value="^2" aria-label="Square">x²</button>
+
+            <button class="key key-function" data-value="log(" aria-label="Base 10 logarithm">log</button>
+            <button class="key key-function" data-value="ln(" aria-label="Natural logarithm">ln</button>
+            <button class="key key-function" data-value="^" aria-label="Power">xʸ</button>
+            <button class="key key-function" data-value="!" aria-label="Factorial">x!</button>
+            <button class="key key-function" data-value="pi" aria-label="Pi">π</button>
+
+            <button class="key key-function" data-value="e" aria-label="Euler's number">e</button>
+            <button class="key key-function" data-value="%" aria-label="Percent">%</button>
+            <button class="key key-function" data-action="sign" aria-label="Change sign">±</button>
+            <button class="key key-clear" data-action="clear-entry">CE</button>
+            <button class="key key-clear" data-action="clear">AC</button>
+
+            <button class="key key-number" data-value="7">7</button>
+            <button class="key key-number" data-value="8">8</button>
+            <button class="key key-number" data-value="9">9</button>
+            <button class="key key-operator" data-value="÷" aria-label="Divide">÷</button>
+            <button class="key key-operator" data-action="backspace" aria-label="Backspace">⌫</button>
+
+            <button class="key key-number" data-value="4">4</button>
+            <button class="key key-number" data-value="5">5</button>
+            <button class="key key-number" data-value="6">6</button>
+            <button class="key key-operator" data-value="×" aria-label="Multiply">×</button>
+            <button class="key key-operator" data-value="^" aria-label="Power">^</button>
+
+            <button class="key key-number" data-value="1">1</button>
+            <button class="key key-number" data-value="2">2</button>
+            <button class="key key-number" data-value="3">3</button>
+            <button class="key key-operator" data-value="−" aria-label="Subtract">−</button>
+            <button class="key key-operator" data-action="square-root" aria-label="Square root">√</button>
+
+            <button class="key key-number key-zero" data-value="0">0</button>
+            <button class="key key-number" data-value=".">.</button>
+            <button class="key key-operator" data-value="+" aria-label="Add">+</button>
+            <button class="key key-equals" data-action="calculate" aria-label="Calculate">=</button>
+          </div>
+
+          <footer class="calculator-footer">
+            <span><kbd>↵</kbd> calculate</span>
+            <span><kbd>⌫</kbd> delete</span>
+            <span>Built for the curious <span class="footer-star">✳</span></span>
+          </footer>
+        </div>
+
+        <aside class="history-card" aria-label="Calculation history">
+          <div class="history-heading">
+            <div>
+              <p class="eyebrow">YOUR RECENT WORK</p>
+              <h2>History</h2>
+            </div>
+            <button id="clear-history" class="history-clear" type="button" aria-label="Clear history" title="Clear history">
+              <svg viewBox="0 0 20 20" aria-hidden="true">
+                <path d="M4 6h12M8 6V4h4v2m-6 0 1 10h6l1-10M8 9v4m4-4v4"></path>
+              </svg>
+            </button>
+          </div>
+          <div class="history-list" id="history-list">
+            <div class="history-empty">
+              <span class="history-empty-icon" aria-hidden="true">↗</span>
+              <p>Your calculations will<br />show up here.</p>
+            </div>
+          </div>
+          <div class="history-footnote">Your last 8 calculations</div>
+        </aside>
+      </section>
+
+      <div class="toast" id="toast" role="status" aria-live="polite"></div>
+      <p class="page-note">A little more clarity, one calculation at a time.</p>
+    </main>
+  </body>
+</html>
